@@ -1,5 +1,5 @@
 require 'thor'
-require_relative '../tomosia_icon8_crawl'
+require_relative '../tomosia_icons8_crawl'
 
 module TomosiaIcons8Crawl
   class Cli < Thor
