@@ -11,14 +11,17 @@ module TomosiaIcons8Crawl
 				p "No data!"
 			else 
 				if max == nil
-					url = "https://search.icons8.com/api/iconsets/v5/search?term=#{key}"
+					uri = "https://search.icons8.com/api/iconsets/v5/search?term=#{key}&amount=1"
+					page = HTTParty.get(uri)
+					res = page.parsed_response
+					countAll = res['parameters']['countAll']
+					url = "https://search.icons8.com/api/iconsets/v5/search?term=#{key}&amount=#{countAll}"
 				else
 					url = "https://search.icons8.com/api/iconsets/v5/search?term=#{key}&amount=#{max}"
 				end
 			end
-			
 			page_data = HTTParty.get(url)
-			@responses = page_data.parsed_response	
+			@responses = page_data.parsed_response
 		end
 
 		# save file to txt
@@ -147,3 +150,4 @@ module TomosiaIcons8Crawl
 	    end
 	end
 end
+# TomosiaIcons8Crawl::CrawlIcons8.crawl("dog", "E:\img")
