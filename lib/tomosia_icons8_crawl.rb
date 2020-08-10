@@ -51,7 +51,7 @@ module TomosiaIcons8Crawl
 	    		worksheet.write_string(0, 0, 'STT', format)
 		    	worksheet.write_string(0, 1, 'NAME', format)
 		    	worksheet.write_string(0, 2, 'URL', format)
-		    	worksheet.write_string(0, 3, 'SIZE', format)
+		    	worksheet.write_string(0, 3, 'SIZE(byte)', format)
 		    	worksheet.write_string(0, 4, 'EXTENSION', format)
 
 		    	multi = []
@@ -114,7 +114,6 @@ module TomosiaIcons8Crawl
 					ext = File.extname(img).delete('.')
 					threads << Thread.new do 
 						download_image(des, img)
-						@size = @size.to_s + "byte"
 						row = {"index" => index, "name" => title, "url" => img, "size" => @size, "extension" => ext}
 						@data.push(row)
 					end

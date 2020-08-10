@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tomosia_icons8_crawl (0.1.0)
+    tomosia_icons8_crawl (0.1.1)
       httparty
       nokogiri
       pry
