@@ -32,6 +32,7 @@ module TomosiaIcons8Crawl
 
     # save file to excel
     def self.save_file_excel( path, data = {})
+      p "Start write excel"
       begin
         des = path + '/export.xls'
         workbook  = WriteExcel.new(des)
@@ -78,6 +79,7 @@ module TomosiaIcons8Crawl
         p e
         # break
       end
+      p "Write excel success!"
     end
 
     # download image
@@ -102,6 +104,7 @@ module TomosiaIcons8Crawl
 
     # multi download image
     def self.multi_download_image(path, imgs)
+      p "Start download image"
       begin
         threads = []
         @data = []
@@ -115,6 +118,7 @@ module TomosiaIcons8Crawl
             download_image(des, img)
             row = {"index" => index, "name" => title, "url" => img, "size" => @size, "extension" => ext}
             @data.push(row)
+	    print '.'
           end
         end
         threads.each{ |t| t.join }  
@@ -122,6 +126,7 @@ module TomosiaIcons8Crawl
         p "no data"
         p e
       end
+      print "\nDownload success!\n"
     end
 
     # main
