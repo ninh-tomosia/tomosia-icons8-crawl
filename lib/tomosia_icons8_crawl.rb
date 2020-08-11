@@ -1,7 +1,6 @@
 module TomosiaIcons8Crawl
   require 'open-uri'
   require "httparty"
-  require 'pry'
   require 'writeexcel'
   class CrawlIcons8
 
